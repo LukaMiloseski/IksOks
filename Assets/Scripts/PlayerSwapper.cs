@@ -1,15 +1,15 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerSwapper : MonoBehaviour
 {
-    private enum Player { X, O};
+    public enum Player { X, O};
     
-    private int player = (int)Player.X;
+    private Player _player = Player.X;
 
-    void ChangePlayer()
+    public Player ChangePlayer()
     {
-        player = (player == (int)Player.X) ? (int)Player.O : (int)Player.X;
+        var playerTmp = _player;
+        _player= _player == Player.X ? Player.O : Player.X;
+        return playerTmp;
     }
 }
